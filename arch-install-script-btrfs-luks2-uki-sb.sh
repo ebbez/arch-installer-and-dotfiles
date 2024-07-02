@@ -16,7 +16,7 @@ Partition #1: 1GB EFI partition
 Partition #2: Remaining/leftover space for Linux partition
 "
 echo
-read -p "Disk (include p if nvme e.g. 'nvme0n1p'): " disk
+read -p "Disk (include p if nvme e.g. '/dev/nvme0n1p'): " disk
 
 # The zeroes in the `sgdisk` command all mean default values.
 # For the --new it means "<next number>:<first available sector on disk>:<last available sector on disk>"
