@@ -14,6 +14,40 @@ Btrfs, LUKS2 encryption full-disk encryption headers, Secure Boot management
 over Unified Kernel Images (safer than having kernel and initramfs files
 separate allowing initramfs files or bootloader configs to be possibly changed).
 
+## Extra notes on installing Arch
+
+### Custom locale while keeping the language English
+
+Usually the `/etc/locale.conf` will just contain
+
+```
+LANG=en_US.UTF-8
+```
+
+but I required the locale/region to be according to where I live (mainly to
+display time right). I still however wanted all the text from the OS
+to remain English. My locale.conf looks like
+
+```
+LANG=nl_NL.UTF-8
+LANGUAGE=en_US:en:C:nl_NL:nl
+LC_MESSAGES=en_US.UTF-8
+```
+
+Changing this also sets the entire Plasma 6 DE to Dutch regional formats but
+keeps the actual language in English.
+
+### Missing timezone
+
+The Arch installer still misses a timezone symbolic link. Usually you're supposed
+to link this using one of the timezones listed in the `/usr/share/zoneinfo` dir.
+
+It can be done by executing
+
+```
+ln -s /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
+```
+
 # Hyprland
 
 The repository also contains some Hyprland config files. The main goal with
